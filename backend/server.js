@@ -4,6 +4,7 @@ const dotenv = require("dotenv").config();
 const { errorHandler } = require("./middleware/errorMiddleware");
 
 const userRoutes = require("./routes/userRoutes");
+const ticketRoutes = require("./routes/ticketRoutes");
 const connectDB = require("./config/db");
 
 const PORT = process.env.PORT || 8000;
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 
 //Routes
 app.use("/api/users", userRoutes);
+app.use("/api/tickets", ticketRoutes);
 
 app.use(errorHandler);
 
